@@ -127,7 +127,16 @@ public class MiHashSet
      * @returns true si ambos conjuntos son iguales
      */
     public boolean equals(MiHashSet otroConjunto){
-
-        return false;
+        boolean equals = true;
+        if(otroConjunto.size() == size())
+        {
+            for(int i = 0;i < collection.length && equals ; i++){
+                if(!otroConjunto.contains(collection[i])){
+                    equals = false;
+                }
+            }
+        }
+        
+        return equals;
     }
 }
