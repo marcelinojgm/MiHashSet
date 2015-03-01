@@ -78,8 +78,8 @@ public class MiHashSet
      * @return true si el conjunto esta vacio, false en caso contrario
      */
     public boolean isEmpty(){
-
-        return false;
+       return collection.length==0;
+       
     }
 
     /**
