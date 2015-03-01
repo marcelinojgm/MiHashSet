@@ -90,8 +90,47 @@ public class MiHashSet
      * @return true el elemento especificado estava en el conjunto, en caso contrario false
      */
     public boolean remove(int elemento){
+        boolean delete = false;
+        //si el mapa esta vacio directamente no se realiza ninguna accion y se devuelve -1
+        if(collection.length != 0)
+        {
+            //nuevo conjunto
+            int[] newCollection  = new int[collection.length - 1];
 
-        return false;
+            
+            //busqueda del registro el elemnto
+            for(int index = 0; index < collection.length ; index++ )
+            {
+                //si el elemnto coincide realiza borrado
+                if (collection[index] == elemento){
+                    //marcar como borrado no se guardara en la nuevo conjunto
+                    delete = true;
+                }
+
+                //no encontrado elemento especificada
+                else if(!delete){
+                    //-si el ultimo elemento si no es el ultimo elemento no se relaizan modificaciones
+                    //-en el restro de casos se guarda el nuevo conjunto
+                    if(index != collection.length - 1 ){
+                        newCollection[index]   = collection[index];
+
+                    }
+                }
+
+                //guardado de elementos depues del borrado 
+                else{
+                    newCollection[index - 1]   = collection[index];
+
+                }
+            }
+
+            //guardado del nuevo conjunto si se a relizado borrado
+            if(delete){ 
+                collection   = newCollection;
+            }
+            
+        }
+        return delete;
     }
 
     /**
@@ -136,7 +175,7 @@ public class MiHashSet
                 }
             }
         }
-        
+
         return equals;
     }
 }
