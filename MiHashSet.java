@@ -8,13 +8,13 @@
  */
 public class MiHashSet
 {
-
+    private int[] collection;
     /**
      * Construye un nuevo conjunto vacío 
      */
     public MiHashSet()
     {
-
+        collection = new int[0];
     }
 
     /**
@@ -25,15 +25,30 @@ public class MiHashSet
      *  @return true el elemnto no estava presente, false estava presente
      */
     public boolean add(int valor){
-
-        return false;
+        boolean noContains = true;
+        int[] newCollection = new int[collection.length+1];
+        for(int i = 0; i < collection.length && noContains; i++){
+            if(collection[i] == valor){
+                noContains = false;
+            }
+            else{
+                newCollection[i] = collection[i];
+            }
+        }
+        
+        if(noContains){
+            newCollection[newCollection.length-1] = valor;
+            collection = newCollection;
+        }
+        
+        return noContains;
     }
 
     /**
      *  vacía el conjunto.
      */
     public void clear(){
-
+        
     }
 
     /**
