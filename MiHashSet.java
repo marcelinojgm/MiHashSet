@@ -27,10 +27,10 @@ public class MiHashSet
     public boolean add(int valor){
         //false si esta contenido en la coleccion true si no lo esta
         boolean noContains = true;
-        
+
         //nueva coleccion en caso de agregar un nuevo elemento
         int[] newCollection = new int[collection.length+1];
-        
+
         for(int i = 0; i < collection.length && noContains; i++){
             if(collection[i] == valor){
                 noContains = false;
@@ -63,13 +63,13 @@ public class MiHashSet
     public boolean contains(int elemento){
         //true si esta contenido en la coleccion false si no lo esta
         boolean contains = false;
-        
+
         for(int i = 0; i < collection.length && !contains; i++){
             if(collection[i] == elemento){
                 contains = true;
             }
         }
-        
+
         return contains;
     }
 
@@ -78,8 +78,8 @@ public class MiHashSet
      * @return true si el conjunto esta vacio, false en caso contrario
      */
     public boolean isEmpty(){
-       return collection.length==0;
-       
+        return collection.length==0;
+
     }
 
     /**
@@ -104,11 +104,21 @@ public class MiHashSet
 
     /**
      * devuelve una cadena conteniendo todos los elementos del conjunto separados por comas y entre corchetes.
-     * @returns cadena de caracteres con todos los elementos separados por comas
+     * @returns cadena de caracteres con todos los elementos separados por comas si
      */
     public String toString(){
+        String toString = "[";
+        for(int i = 0; i < collection.length ; i++){
+            if(i == 0){
+                toString = toString  + collection[i];
 
-        return "";
+            }
+            else{ 
+                toString = toString + "," + collection[i];	
+            }
+        }
+        toString = toString + "]";
+        return toString;
     }
 
     /**
