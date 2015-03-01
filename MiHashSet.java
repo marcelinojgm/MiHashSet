@@ -48,7 +48,7 @@ public class MiHashSet
      *  vacía el conjunto.
      */
     public void clear(){
-        
+        collection = new int[0];
     }
 
     /**
