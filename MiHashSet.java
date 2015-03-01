@@ -25,8 +25,12 @@ public class MiHashSet
      *  @return true el elemnto no estava presente, false estava presente
      */
     public boolean add(int valor){
+        //false si esta contenido en la coleccion true si no lo esta
         boolean noContains = true;
+        
+        //nueva coleccion en caso de agregar un nuevo elemento
         int[] newCollection = new int[collection.length+1];
+        
         for(int i = 0; i < collection.length && noContains; i++){
             if(collection[i] == valor){
                 noContains = false;
@@ -35,12 +39,12 @@ public class MiHashSet
                 newCollection[i] = collection[i];
             }
         }
-        
+
         if(noContains){
             newCollection[newCollection.length-1] = valor;
             collection = newCollection;
         }
-        
+
         return noContains;
     }
 
@@ -57,8 +61,16 @@ public class MiHashSet
      * @return retorna true si el conjunto contiene el elemento
      */
     public boolean contains(int elemento){
-
-        return false;
+        //true si esta contenido en la coleccion false si no lo esta
+        boolean contains = false;
+        
+        for(int i = 0; i < collection.length && !contains; i++){
+            if(collection[i] == elemento){
+                contains = true;
+            }
+        }
+        
+        return contains;
     }
 
     /**
