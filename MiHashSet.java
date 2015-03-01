@@ -99,7 +99,7 @@ public class MiHashSet
      *  @return numero de elementos en el conjunto
      */
     public int size(){
-        return 0;
+        return collection.length;
     }
 
     /**
